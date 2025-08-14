@@ -14,7 +14,7 @@ Two independent tasks:
    The Helm chart is kept simple (no HPA, ingress class, PVC, etc.).
 
 2. **Terraform (GCP)**  
-   Highly available cloud infrastructure for a simple web app (web server, database, object storage).
+   Highly available cloud infrastructure for a simple web app (web server on gke, database, object storage).
    Kubernetes manifests are applied by Terraform; in a real-world setup, I would use Argo CD or Helm in a separate repository.
 
 ---
@@ -63,6 +63,4 @@ Two independent tasks:
 * Prometheus + Alertmanager – monitoring and alerting for reliability and SLO tracking.
 * VPN setup – then we can turn off enable_private_endpoint for GKE.
 
-```
-```
 ````
