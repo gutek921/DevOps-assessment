@@ -47,21 +47,21 @@ Two independent tasks:
 
 **Components:**
 
-* **GKE**: Managed by autopilot.
-* **Database**: Cloud SQL (PostgreSQL, HA).
-* **Storage**: GCS bucket.
-* **Networking**: Global HTTP(S) Load Balancer, firewall rules.
-* **Monitoring**: CPU usage and error rate 5xx on loadbalancer.
-* **Security**: IAM least privilege, dedicated service accounts.
+* GKE - Managed by autopilot.
+* Database - Cloud SQL (PostgreSQL, HA).
+* Storage - GCS bucket.
+* Networking - Global HTTP(S) Load Balancer, firewall rules.
+* Monitoring - CPU usage and error rate 5xx on loadbalancer.
+* Security - IAM least privilege, dedicated service accounts.
 
 ---
 
 ## Possible Improvements
 
-* **Autoscaling with KEDA** – event-driven scaling for Kubernetes workloads.
-* **Network Policies** – isolate workloads to improve security.
-* **Prometheus + Alertmanager** – monitoring and alerting for reliability and SLO tracking.
-* **VPN setup** – then we can turn off enable_private_endpoint for GKE.
+* Autoscaling with KEDA – event-driven scaling for Kubernetes workloads.
+* Network Policies – isolate workloads to improve security.
+* Prometheus + Alertmanager – monitoring and alerting for reliability and SLO tracking.
+* VPN setup – then we can turn off enable_private_endpoint for GKE.
 
 ```
 ```
