@@ -14,7 +14,7 @@ Two independent tasks:
    The Helm chart is kept simple (no HPA, ingress class, PVC, etc.).
 
 2. **Terraform (GCP)**  
-   Highly available cloud infrastructure for a simple web app (web server, database, object storage).  
+   Highly available cloud infrastructure for a simple web app (web server, database, object storage).
    Kubernetes manifests are applied by Terraform; in a real-world setup, I would use Argo CD or Helm in a separate repository.
 
 ---
@@ -47,11 +47,11 @@ Two independent tasks:
 
 **Components:**
 
-* **Compute**: Managed Instance Group with Nginx.
+* **GKE**: Managed by autopilot.
 * **Database**: Cloud SQL (PostgreSQL, HA).
 * **Storage**: GCS bucket.
 * **Networking**: Global HTTP(S) Load Balancer, firewall rules.
-* **Scalability**: Autoscaling based on CPU usage.
+* **Monitoring**: CPU usage and error rate 5xx on loadbalancer.
 * **Security**: IAM least privilege, dedicated service accounts.
 
 ---
@@ -61,6 +61,7 @@ Two independent tasks:
 * **Autoscaling with KEDA** – event-driven scaling for Kubernetes workloads.
 * **Network Policies** – isolate workloads to improve security.
 * **Prometheus + Alertmanager** – monitoring and alerting for reliability and SLO tracking.
+* **VPN setup** – then we can turn off enable_private_endpoint for GKE.
 
 ```
 ```
