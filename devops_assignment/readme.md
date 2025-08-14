@@ -31,7 +31,6 @@ Two independent tasks:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
-````
 
 * Automatic Pod restarts on ConfigMap/Secret change (checksum annotation).
 * Random Secrets (`randAlphaNum`) injected into Deployment.
@@ -65,3 +64,4 @@ Two independent tasks:
 
 ```
 ```
+````
