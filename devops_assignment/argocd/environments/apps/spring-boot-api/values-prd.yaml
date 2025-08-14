@@ -1,0 +1,5 @@
+replicaCount: 5
+springProfile: prd
+ingress:
+  enabled: true
+  host: prd.springboot.local

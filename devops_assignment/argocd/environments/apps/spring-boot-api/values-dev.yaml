@@ -1,0 +1,5 @@
+replicaCount: 3
+springProfile: dev
+ingress:
+  enabled: true
+  host: dev.springboot.local

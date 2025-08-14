@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: springboot-api
+spec:
+  goTemplate: true
+  generators:
+    - list:
+        elements:
+          - cluster: dev-global-cluster-0
+            env: dev
+            valuesFile: values-dev.yaml
+          - cluster: prd-global-cluster-5
+            env: prod
+            valuesFile: values-prd.yaml
+  template:
+    metadata:
+      name: '{{ .env }}-springboot-api'
+    spec:
+      project: platform-apps
+      sources:
+        - repoURL: https://url-to-repo/sre.git
+          targetRevision: main
+          path: spring-boot-api
+          helm:
+            valueFiles:
+              - $values/apps/spring-boot-api/{{ .valuesFile }}
+        - repoURL: https://url-to-repo/environments.git
+          targetRevision: main
+          ref: values
+      destination:
+        name: '{{ .cluster }}'
+        namespace: springboot-api-{{ .env }}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
